@@ -13,6 +13,18 @@ namespace R5T.O0009
     [ValuesMarker]
     public partial interface IProjectFileGenerationOperations : IValuesMarker
     {
+        public async Task Create_BlazorClient(
+            IProjectFilePath projectFilePath,
+            IProjectDescription projectDescription,
+            IsSet<IRepositoryUrl> repositoryUrl)
+        {
+            await Instances.ProjectFileContextOperator.In_New_ProjectFileContext(
+                projectFilePath,
+                Instances.ProjectFileContextOperations.Setup_BlazorClientProjectFile(
+                    projectDescription,
+                    repositoryUrl));
+        }
+
         public async Task Create_WebServerForBlazorClient(
             IProjectFilePath projectFilePath,
             IProjectDescription projectDescription,
