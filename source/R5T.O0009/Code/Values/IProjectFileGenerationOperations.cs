@@ -36,7 +36,7 @@ namespace R5T.O0009
                 Instances.ProjectFileContextOperations.Setup_WebServerForBlazorClientProjectFile(
                     projectDescription,
                     repositoryUrl,
-                    clientProjectFilePath));
+                    () => clientProjectFilePath));
         }
 
         public async Task Create_ConsoleProjectFile(
